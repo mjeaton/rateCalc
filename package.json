@@ -1,0 +1,23 @@
+{
+  "name": "RateCalculator",
+  "title": "Rate Calculator",
+  "description": "A consulting / freelance rate calculator",
+  "version": "0.0.1",
+  "private": true,
+  "author": {
+    "name": "Michael Eaton",
+    "company": "Validus Solutions, LLC."
+  },
+  "devDependencies": {
+    "protractor": ">=0.8.0",
+    "jasmine-given": "~2.1.0",
+    "lineman": ">= 0.28.0",
+    "lineman-angular": ">= 0.2.0",
+    "lineman-less": "0.0.1",
+    "coffee-script": "~1.6.3"
+  },
+  "scripts": {
+    "start": "lineman run",
+    "test": "lineman spec-ci"
+  }
+}

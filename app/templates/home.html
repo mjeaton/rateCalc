@@ -1,0 +1,27 @@
+<form name="myForm" class="calculateForm" ng-submit="myForm.$valid && calculate()">
+    <h2>Rate Calculator</h2>
+        <div class="form-group">
+            <label for="targetIncome">Enter your target income:</label>
+            <input id="targetIncome" type="text" ng-model="data.targetIncome" required class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="billableHoursPerWeek">How many hours per week will you bill?</label>
+            <input id="billableHoursPerWeek" type="text" ng-model="data.billableHoursPerWeek" required class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="billableWeeksPerYear">How many weeks per year will you bill?</label>
+            <input id="billableWeeksPerYear" type="text" ng-model="data.billableWeeksPerYear" required class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="monthlyExpenses">What are your monthly business *and* personal expenses?</label>
+            <input id="monthlyExpenses" type="text" ng-model="data.monthlyExpenses" required class="form-control"/>
+        </div>
+
+        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-primary btn-block" style="margin-top:10px;">Calculate</button>
+    </div>
+
+    <div>
+        The calculated amount is: {{ calculatedAmount }}
+    </div>
+</form>
+
