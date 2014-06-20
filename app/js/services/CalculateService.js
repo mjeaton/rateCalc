@@ -1,15 +1,17 @@
 angular.module("app").factory("CalculateService", function($log) {
         return {
            calc: function(calculateData) {
-				var yearlyBusinessExpenses = calculateData.monthlyBusinessExpenses * 12;
-				var yearlyPersonalExpenses = calculateData.monthlyPersonalExpenses * 12;
+				var yearlyBusinessExpenses = parseInt(calculateData.monthlyBusinessExpenses * 12, 10);
+				var yearlyPersonalExpenses = parseInt(calculateData.monthlyPersonalExpenses * 12, 10);
 
 				var totalExpenses = parseInt(yearlyPersonalExpenses + yearlyBusinessExpenses, 10);
 				var totalHours = parseInt(calculateData.billableHoursPerWeek * calculateData.billableWeeksPerYear, 10);
-				var totalMoney = parseInt(calculateData.profitTarget + totalExpenses, 10);
+				var totalMoney = parseInt(calculateData.profitTarget, 10) + totalExpenses;
 
 				var returnVal = (totalMoney / totalHours);
 
+				$log.info(totalMoney);
+				$log.info(totalHours);
 				$log.info(returnVal);
 
 				// if bogus data, just return 0
