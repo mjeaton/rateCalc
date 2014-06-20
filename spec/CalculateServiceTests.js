@@ -29,7 +29,7 @@ describe('CalculateService', function() {
 	})) 
 
 	it('should return 81 when profit is 125000, hours per week is 30, weeks per year is 52 and no expenses.', inject(function(CalculateService) {
-		expect(CalculateService.calc({ profitTarget: 125000, billableHoursPerWeek: 30, billableWeeksPerYear: 52, monthlyBusinessExpenses: 0, monthlyPersonalExpenses: 0 })).toBe(81);
+		expect(CalculateService.calc({ profitTarget: 125000, billableHoursPerWeek: 30, billableWeeksPerYear: 52, monthlyBusinessExpenses: 0, monthlyPersonalExpenses: 0 })).toBe(80.12820512820512);
 	})) 
 
 });
