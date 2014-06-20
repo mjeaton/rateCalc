@@ -1,8 +1,8 @@
 angular.module("app").factory("CalculateService", function($log) {
         return {
            calc: function(calculateData) {
-				var yearlyBusinessExpenses = Number(calculateData.monthlyBusinessExpenses * 12);
-				var yearlyPersonalExpenses = Number(calculateData.monthlyPersonalExpenses * 12);
+				var yearlyBusinessExpenses = calculateData.monthlyBusinessExpenses * 12;
+				var yearlyPersonalExpenses = calculateData.monthlyPersonalExpenses * 12;
 
 				var totalExpenses = yearlyPersonalExpenses + yearlyBusinessExpenses;
 				var totalHours = calculateData.billableHoursPerWeek * calculateData.billableWeeksPerYear;
