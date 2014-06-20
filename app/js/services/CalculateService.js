@@ -17,7 +17,12 @@ angular.module("app").factory("CalculateService", function($log) {
 				else {
 					return returnVal;
 				}
-           }
+           },
+			calculateYearlyExpenses: function(calculateData) {
+				var yearlyBusinessExpenses = calculateData.monthlyBusinessExpenses * 12;
+				var yearlyPersonalExpenses = calculateData.monthlyPersonalExpenses * 12;
+				return yearlyBusinessExpenses + yearlyPersonalExpenses;
+			}
         };
     });
 
