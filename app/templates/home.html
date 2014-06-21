@@ -1,50 +1,54 @@
+<h2>Rate Calculator</h2>
+
 <form name="myForm" class="calculateForm" ng-submit="myForm.$valid && calculate()">
-    <h2>Rate Calculator</h2>
-        <div class="form-group">
-            <label for="billableHoursPerWeek">How many hours per week will you bill?</label>
-            <input id="billableHoursPerWeek" type="number" min="0" max="80" step="1" ng-model="data.billableHoursPerWeek" required class="form-control" />
-			<span class="help-block">Don't plan on being 100% billable, but also plan on having a life!</span>
-        </div>
-        <div class="form-group">
-            <label for="billableWeeksPerYear">How many weeks per year will you bill?</label>
-            <input id="billableWeeksPerYear" type="number" min="1" max="52" step="1" ng-model="data.billableWeeksPerYear" required class="form-control" />
-			<span class="help-block">Consider vacation, conferences, holidays, sick time and anything else that will keep you out of the office.</span>
-        </div>
-        <div class="form-group">
-            <label for="monthlyBusinessExpenses">Monthly business expenses?</label>
-			<div class="input-group">
-				<span class="input-group-addon">$</span>
-	            <input id="monthlyBusinessExpenses" type="number" min="0" ng-model="data.monthlyBusinessExpenses" required class="form-control"/>
-				<span class="input-group-addon">.00</span>
+	<div class="col-sm-7">
+			<div class="form-group">
+				<label for="billableHoursPerWeek">How many hours per week will you bill?</label>
+				<input id="billableHoursPerWeek" type="number" min="0" max="80" step="1" ng-model="data.billableHoursPerWeek" required class="form-control" />
+				<span class="help-block">Don't plan on being 100% billable, but also plan on having a life!</span>
 			</div>
-			<span class="help-block">Examples: Rent, loans, credit cards, education, office supplies, legal expenses, insurance...</span>
-        </div>
-        <div class="form-group">
-            <label for="monthlyPersonalExpenses">Monthly personal expenses?</label>
-			<div class="input-group">
-				<span class="input-group-addon">$</span>
-	            <input id="monthlyPersonalExpenses" type="number" min="0" ng-model="data.monthlyPersonalExpenses" required class="form-control"/>
-				<span class="input-group-addon">.00</span>
+			<div class="form-group">
+				<label for="billableWeeksPerYear">How many weeks per year will you bill?</label>
+				<input id="billableWeeksPerYear" type="number" min="1" max="52" step="1" ng-model="data.billableWeeksPerYear" required class="form-control" />
+				<span class="help-block">Consider vacation, conferences, holidays, sick time and anything else that will keep you out of the office.</span>
 			</div>
-			<span class="help-block">Examples: Rent, mortgage, loans, credit cards, education, office supplies, insurance, gifts...</span>
-        </div>
-        <div class="form-group">
-            <label for="targetProfit">How much profit do you want to make?</label>
-			<div class="input-group">
-				<span class="input-group-addon">$</span>
-				<input id="targetProfit" type="number" step="5000" min="0" max="1000000"  ng-model="data.targetProfit" required class="form-control" />
-				<span class="input-group-addon">.00</span>
+			<div class="form-group">
+				<label for="monthlyBusinessExpenses">Monthly business expenses?</label>
+				<div class="input-group">
+					<span class="input-group-addon">$</span>
+					<input id="monthlyBusinessExpenses" type="number" min="0" ng-model="data.monthlyBusinessExpenses" required class="form-control"/>
+					<span class="input-group-addon">.00</span>
+				</div>
+				<span class="help-block">Examples: Rent, loans, credit cards, education, office supplies, legal expenses, insurance...</span>
 			</div>
-			<span class="help-block">After covering all of your expenses, how much extra money do you want to make per year?</span>
-        </div>
+			<div class="form-group">
+				<label for="monthlyPersonalExpenses">Monthly personal expenses?</label>
+				<div class="input-group">
+					<span class="input-group-addon">$</span>
+					<input id="monthlyPersonalExpenses" type="number" min="0" ng-model="data.monthlyPersonalExpenses" required class="form-control"/>
+					<span class="input-group-addon">.00</span>
+				</div>
+				<span class="help-block">Examples: Rent, mortgage, loans, credit cards, education, office supplies, insurance, gifts...</span>
+			</div>
+			<div class="form-group">
+				<label for="targetProfit">How much profit do you want to make?</label>
+				<div class="input-group">
+					<span class="input-group-addon">$</span>
+					<input id="targetProfit" type="number" step="5000" min="0" max="1000000"  ng-model="data.targetProfit" required class="form-control" />
+					<span class="input-group-addon">.00</span>
+				</div>
+				<span class="help-block">After covering all of your expenses, how much extra money do you want to make per year?</span>
+			</div>
 
-        <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-primary btn-block" style="margin-top:10px;">Calculate</button>
-    </div>
+			<button type="submit" ng-disabled="myForm.$invalid" class="btn btn-primary btn-block" style="margin-top:10px;">Calculate</button>
+		</div>
+	</div>
 
-    <div>
-		<h3>Total yearly expenses: ${{ totalYearlyExpenses | number: 2 }}</h3>
-        <h3>Suggested hourly rate: ${{ calculatedAmount | number: 0}}</h3>
-        <h3>Working {{ hours }} hours per week for {{ weeks }} at ${{ calculatedAmount | number: 0 }}/hr will bring in ${{ totalIncome | number: 2}} </h3>
-    </div>
+	<div class="col-sm-5 sidebar-module-inset">
+		<h4>Minimum suggested hourly rate: ${{ calculatedAmount | number: 0}}</h4>
+		<hr/>
+		<h4>Total yearly expenses: ${{ totalYearlyExpenses | number: 2 }}</h4>
+		<hr/>
+		<h4>Working {{ hours }} hours per week for {{ weeks }} weeks at ${{ calculatedAmount | number: 0 }}/hr will bring in ${{ totalIncome | number: 2}}.</h4>
+	</div>
 </form>
-
